@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML EVENTS</title>
+</head>
+
+<body style="background-color: #414141 ; color: aliceblue; ;">
+    <h2>AMAZING PICTURES</h2>
+    <ul id="IMAGES" style="border: 2px solid grey;">
+        <li><img src="khada_hu.jpeg" width="200px" height="200px" alt="photoshop" id="khada_hu"></li>
+        <li><img src="beth_gaya.jpeg" width="200px" height="200px"  alt="" id="beth_gaya"></li>
+        <li><img src="tisha.jpg" width="200px" height="200px" alt=""   id="tisha"></li>
+        <li><img src="mummy.jpg" width="200px" height="200px" alt="" onclick="alert('hey there')"  id="mummy"></li>
+        <!-- onclick="alert('mummy ji')" use in above ,it is first approch -->
+        <li><img src="khada_hu.jpeg" width="200px" height="200px" alt="" id="khada_hu(2)"></li>
+        <li><a href="https://google.com" id="google" style="color:lightgray;">google</a></li>
+    </ul>
+</body>
+<script>
+
+     // 1.approch to give alert(onclick event)
+    // document.getElementById('beth_gaya').onclick=function(){
+    //     alert('beth to gaya yar(2)')
+    // }
+
+    //attachEvent()
+    //jQuery-on
+    //--These two are used before ,not currently
+
+    //2.approch to give alret ,it just give more features as compare to  approch 1(event listener)
+    // document.getElementById('beth_gaya').addEventListener('click',function(){
+    //     alert("beth to gaya yar(3)")
+    // },false)
+
+
+
+
+
+    //-----------------I HAVE TO STUDY THESE ALL EVENTS BY MY SELF------------//
+          //type,timestamp,defaultPrevented
+          //target,toElement,srcElement(must),currentTarget
+          //clientX,clientY,screenX,screenY<-----interview me pucha jata hain
+          //altkey,ctrlkey,shiftkey,keyCode
+   //-----------------------------------------------------------------------//
+
+
+
+
+    //3.event objects
+
+//    document.getElementById('beth_gaya').addEventListener('click',function(e){
+//       console.log(e)//op---console ma gani badha features apse check karje
+//     },false)//ahi default false hoy che but lakhvu saru
+
+
+
+//    document.getElementById('beth_gaya').addEventListener('click',function(e){
+//       console.log(e)//op---console ma gani badha features apse check karje
+//     },true)
+
+//TYPES OF EVENT PROPOGATION
+//1.event bubbling 
+//2.event capturing
+
+//1.event bubbling 
+//NOW WE WILL UNDERSTAND HOW TRUE AND FALSE WORKS WITH addEventListener
+//example --1(with false)
+// document.getElementById('IMAGES').addEventListener('click',function(e){
+//     console.log('clicked inside the ul')
+
+// },false)
+
+// document.getElementById('beth_gaya').addEventListener('click',function(e){
+//     console.log('beth to gaya yar')
+// },false)
+
+//op--note-->ahi bubbling up approch use thay means ke ahi me 2 function ni andar beth gaya
+// lakhyu che te pela excute thase , pachi bar ni vastu excute thase
+//inshort--1.img tag is executed--(beth to gaya yar) ,2.li tag is executed,3.ul tag is executed--(clicked inside the ul)
+
+//example --2(with  true)
+// //2.event cepturing
+// document.getElementById('IMAGES').addEventListener('click',function(e){
+//     console.log('clicked inside the ul')
+
+// },true)
+
+// document.getElementById('beth_gaya').addEventListener('click',function(e){
+//     console.log('beth to gaya yar')
+// },true)
+
+//op-note->ahi Top to Bottom Approch use thay,event bubbling thi complete undhu run thay
+//Direction-outer tag to inner tag
+
+
+//---now understand how to stop bubbing (jyare ekj vastu print karavu hoy tyare )
+// document.getElementById('IMAGES').addEventListener('click',function(e){
+//     console.log('clicked inside the ul')
+
+// },false)
+
+// document.getElementById('beth_gaya').addEventListener('click',function(e){
+//     console.log('beth to gaya yar')
+//     e.stopPropagation()
+
+// },false)
+
+//note- jyare hu  e.stopPropagation()  use karis jyare only   console.log('beth to gaya yar') aa vastu print thase upar---
+//biju vastu print karava mate nai jay
+
+
+
+
+//preventDefault()--aa tyare use thay jyare mare koi elements no use thato rokvo hoy tyaare
+//for example-ahi me google vadi link par use karyu che to,jyare hu google par click karis to pan hu google par nai jai saku
+// document.getElementById('google').addEventListener('click',function (e) {
+//     e.preventDefault();
+
+//     console.log(e);
+//     console.log('google clicked');
+    
+
+
+// },false)
+
+
+
+//EXAMPLE TO LEARN HOW TO REMOVEPERTICULAR IMG
+//STEP:1
+//target(give information about perticular img)
+// document.querySelector('#IMAGES').addEventListener('click',function(e) {
+//     console.log(e.target);
+    
+// },false)
+
+
+// //STEP:2
+// //target.parentNode(give info about img with its parent)
+// document.querySelector('#IMAGES').addEventListener('click',function(e) {
+//     console.log(e.target.parentNode);
+ 
+// },false)
+
+//STEP:3(final mehod)
+// document.querySelector('#IMAGES').addEventListener('click',function(e) {
+// //   console.log(e.target.parentNode);
+//   e.preventDefault();
+//     let removeit=e.target.parentNode
+//     console.log(removeit);
+    
+//     // removeit.remove()//method 1---to remove img
+//     removeit.parentNode.removeChild(removeit)//method 2---to remove img
+
+// },false)
+//note--ahi jo tu img par click karis to aa vastu complete kam karse but to tu--
+//aeni agad li(list) par click karis to akhi list remove thai jase because--
+//parent of  li-->ul,then removeit.remove()<--it will remove whole ul,so that type checking is required
+
+
+
+//type checking
+
+// document.querySelector('#IMAGES').addEventListener('click',function(e) {
+//   console.log(e.target.tagName);
+
+
+//   if (e.target.tagName==='IMG') {
+//     console.log(e.target.id);
+    
+//     let removeit=e.target.parentNode
+//     removeit.remove()//method 1---to remove img
+//   }
+
+
+
+// },false)
+// </script>

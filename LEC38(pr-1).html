@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC PROJECT1</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <h1>Start should change the background color every second</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+//generate a random color
+const randomColor=function(){
+    const hex="0123456789ABCDEF";
+    let color='#';
+    for (let index = 0; index <6; index++) {
+     color+=hex[Math.floor(Math.random()*16)]
+        
+    }
+    return color;
+
+}
+
+let intervalId;
+//function to startchanging color
+
+const startChanginColor=function(){
+    if (!intervalId) {
+        intervalId= setInterval(changeBgColor,1000)//this function returns  interval id(2) to variable intervalID
+
+        // setInterval function aek id return kare , aa vastu ae browser ni indside thay , atle 
+    // intervalId ni value null ke undefined rese nai and  !intervalId <-- aa condition jo koi biji var start par click karse to bhi koi action perform nai kare,
+    //and jyare stopchanging color execute thase atle interval  id ni value  null thai jay and jo koi start par click kare to function fari run thay
+
+
+        console.log('execution started');
+    }
+   
+
+    function changeBgColor(){
+        document.body.style.backgroundColor=randomColor();
+        console.log(intervalId);
+ 
+        
+        console.log('execution ended');
+    }
+   
+}
+
+
+
+
+//function to stopchanging color
+
+
+const stopChanginColor=function(){
+clearInterval(intervalId);
+
+
+ 
+console.log('executon stooped by button');
+
+
+console.log('final intervalID is:-',intervalId);
+intervalId=null;
+
+}
+
+
+
+document.querySelector('#start').addEventListener('click',startChanginColor)
+document.querySelector('#stop').addEventListener('click',stopChanginColor)
+</script>
+</html>

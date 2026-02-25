@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML EVENTS</title>
+</head>
+
+<body style="background-color: #414141 ; color: aliceblue; ;">
+    <h2>AMAZING PICTURES</h2>
+    <ul id="IMAGES">
+        <li><img src="khada_hu.jpeg" width="200px" height="200px" alt="photoshop" id="khada_hu"></li>
+        <li><img src="beth_gaya.jpeg" width="200px" height="200px"  alt="" id="beth_gaya"></li>
+        <li><img src="tisha.jpg" width="200px" height="200px" alt=""   id="tisha"></li>
+        <li><img src="mummy.jpg" width="200px" height="200px" alt="" id="mummy"></li>      
+        <!-- <li><img src="mummy.jpg" width="200px" height="200px" alt="" onclick="alert('mummy')"  id="mummy"></li>       -->
+        <li><img src="khada_hu.jpeg" width="200px" height="200px" alt="" id="khada_hu(2)"></li>
+        <li><a href="https://google.com" id="google" style="color:lightgray;">google</a></li>
+    </ul>
+</body>
+<script>
+
+    //approch-2
+    // document.getElementById('mummy').onclick=function(){
+    //     alert('mummy ')
+    // }
+
+
+    //approch-3
+    // document.getElementById('mummy').addEventListener('click',function () {
+    //     alert('mummy')
+    // })
+
+    //3.1(event object)
+    //  document.getElementById('mummy').addEventListener('click',function (e) {
+    //     console.log(e);
+        
+    // })
+
+    //(3.2)event object with false (false default hoy j che addeventlistener ma)
+    //  document.getElementById('mummy').addEventListener('click',function (e) {
+    //     console.log(e);
+        
+    // },false)
+
+    //i have to study following concepts
+    //type, timestamp , defaultPrevented 
+    //target,toElement,currentTarget
+    //must study about --> srcElement
+    //clientX,clientY,screenX,screenY
+    //altkey,ctrlkey,shiftkey,keycode
+    
+
+    //(3.3)event object with true 
+    // document.getElementById('mummy').addEventListener('click',function (e) {
+    //     console.log(e);
+        
+    // },true)
+    //no differen output you will see with either true or false here(Same output will be generated here)
+    //this concept is known as eventpropogation--1.event bubbling,2.event capturing
+
+
+
+    //Intersting Example-1(with false parameter)(event bubbling)(execute instruction from bottom to top)
+    // document.getElementById('IMAGES').addEventListener('click',function (e) {
+    //     console.log("CLICKED INSIDE THE IMAGE");
+    // },false)
+
+
+    // document.getElementById('mummy').addEventListener('click',function (e) {
+    //     console.log("mummy clicked");
+    // },false)
+
+    //op--mummy clicked
+    //    CLICKED INSIDE THE IMAGE
+
+
+
+
+
+
+    //Intersting example-2(with true parameter)(event capturing)(execute instruction from top to bottom)
+    // document.getElementById('IMAGES').addEventListener('click',function (e) {
+    //     console.log("CLICKED INSIDE THE IMAGE");
+    // },true)
+
+
+    // document.getElementById('mummy').addEventListener('click',function (e) {
+    //     console.log("mummy clicked");
+    // },true)
+
+
+
+
+    //example-3(with stop propogation)(it will stop bubble propogation from bottom to top,execute only that perticular trigred event)
+    //stopPropagation() method
+
+
+    //   document.getElementById('IMAGES').addEventListener('click',function (e) {
+    //     console.log("CLICKED INSIDE THE IMAGE");
+   
+    // },true)
+
+
+    // document.getElementById('mummy').addEventListener('click',function (e) {
+    //     console.log("mummy clicked");
+    
+    // },false)
+    // op--mummy clickedsss
+
+
+   //example--4(prevent default)
+
+// document.getElementById('google').addEventListener('click',function (e) {
+//     e.preventDefault();
+//     console.log('google clicked');
+// },false)
+//op-it will stop you to go youtube through
+
+
+//example-5(how to remove clicked img)
+document.querySelector('#IMAGES').addEventListener('click',function(e) {
+//     // console.log(e.target.parentNode);
+
+//     //method-1 
+//     let removeIt=e.target.parentNode
+//     removeIt.remove()
+
+//     //method-2
+    let removeIt=e.target.parentNode
+  //  console.log(removeIt);
+    
+    //removeIt.parentNode.removeChild(removeIt)
+  
+},false)
+
+
+
+
+//note --jyare hu ahi list item per click karis tyare badhi images jati rese because list item no parent ul che,so     removeIt.remove()  aa method akha ul ne remove kari dese
+
+//so to avoid above case use following method
+//example-6
+document.querySelector('#IMAGES').addEventListener('click',function(e) {
+  console.log(e.target.tagName);
+    if (e.target.tagName==='IMG') {
+        console.log(e.target.id);
+        
+            let removeIt=e.target.parentNode
+    removeIt.remove()
+  }
+ },false)
+
+
+
+    </script>
+</html>

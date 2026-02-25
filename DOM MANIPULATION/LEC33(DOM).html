@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <!-- This Is Comment -->
+        <div class="day">MONDAY</div>
+        <div class="day">TUESDAY</div>
+        <div class="day">WEDNESDAY</div>
+        <div class="day">THURSDAY</div>
+    </div>
+</body>
+
+<script>
+   
+   const parent= document.querySelector('.parent')
+  // console.log(parent);
+  // console.log(parent.children);
+  // console.log(parent.children[1].innerText);
+
+//------for loop----//
+//   for (let index = 0; index <parent.children.length; index++) {
+//   console.log( parent.children[index].innerHTML);
+    
+//   }//op-monday,tuesday,wednesday,thursday
+
+
+
+  // parent.children[1].style.color="orange"//op-tuesday in orange
+
+    //1.directly acessing first and last elements
+//   console.log(parent.firstElementChild);//op-monday
+//   console.log(parent.lastElementChild);//op-thursday
+ 
+
+
+
+  //2.using child element to get parent of it and sibling 
+  // const firstelement= document.querySelector('.day')
+  // console.log(firstelement.innerHTML);//op-monday
+  // console.log(firstelement.parentElement);//gives whole parent(child to parent)
+  // console.log(firstelement.nextElementSibling.innerHTML);//tuesday
+  // console.log("NODES:-",parent.childNodes);
+  
+
+
+  // const secondelement= document.querySelectorAll('.day')
+  // console.log(secondelement);
+  
+  // console.log(secondelement[3].innerHTML);//op--thursday
+
+
+
+</script>
+</html>

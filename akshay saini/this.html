@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Strict Script</title>
+    <script>
+            'use strict'
+        //---------ALL ACTIVITES IN BROWSER-------////
+        //example--1
+        // console.log(this); // Outputs: window In Browser
+        
+
+//         function one(){
+
+//    //     // the value depends on strict mode / non-strict mode
+//             console.log(this);
+            
+//         }
+
+//         // this keyword value depends on how the function is called
+//         one()//undefined
+//             window.one()//window
+
+
+
+//IMPORTANT NOTE--IF YOU MAKE FUNCTION AS A PART OF OBJECT IT IS KNOWN AS METHOD
+
+
+//example-2
+// used this in function and function is a part of object here(METHOD)
+const obj={
+    a:10,
+    x:function(){
+        console.log(this)
+        console.log(this.a)
+    }
+}
+
+obj.x()
+
+
+//EXAMPLE--3(callfunction)
+
+//call is used to change this , means changing variable of object(like stuent , student2)
+const student={
+    name:"harsh",
+    printName:function(){
+        console.log(this.name);//value of this keyword is the object
+    }
+}
+student.printName()//harsh
+
+const student2={
+    name:"jelam",
+}
+
+student.printName.call(student2)//jelam
+
+
+// study  call ,apply and blind your self(sharing methods)
+
+// example-4
+
+const normalFun={
+    a:10,
+    x:function() {
+        console.log(this);
+    }
+}
+normalFun.x()//{a: 10, x: ƒ}
+
+
+
+const arrowFun={
+    a:10,
+    x:() =>{
+        console.log(this);
+    }
+}
+arrowFun.x()//window
+
+//NOTE--arrow funtion retains the this value of the enclosing lexical context)
+
+//NOTE--arrow function na jode potanu this keyword nathi hotu,arrow function return kare this keyword ni value jeni andar ae enclose thayu hoy 
+//IN example 4 , arrow function  (x) ae arrowfun object  ni andar lakhelu hatu and arrowfun ae global space ma hatu atle ae window object return ma apse ,because jyare global space ma tame console.log(this) then it returns ==>window
+
+//example--5
+
+const obj2={
+    a:10,
+    x:function(){
+
+        //enclosing lexical context
+        const y=()=>{
+            console.log(this);
+            
+        }
+        y()
+    }
+}
+
+obj2.x()
+//in example 5 arrowfunction y ae normal function x ni andar hatu and normal function x method che obj2 ni,hence output will be--{a: 10, x: ƒ}
+//in short arrow function ae tena parent kevi rite enclose thay tena this keyword according kam kare
+
+
+
+//this inside DOM element => reference to HTMLelement (check button in html)
+
+
+    </script>
+</head>
+<body>
+    HELLO HARSH
+    <button onclick="alert(this.tagName)">click me</button>
+</body>
+
+</html>

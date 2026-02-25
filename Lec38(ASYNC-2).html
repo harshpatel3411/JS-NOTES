@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+</head>
+<body>
+    <h1>Harsh Patel</h1>
+    <button id="Start">Start</button>
+    <button id="Stop">Stop</button>
+</body>
+<script>
+    //2.setInterval(used to execute thing continuesly after some second )
+    // example-2.1
+    // setInterval(function(){
+    //     console.log('Harsh');  
+    // },1000)
+
+
+
+//example-2.2
+
+//Note--It also has a third parameter
+
+//   const sayDate=function (str){
+//         console.log('Harsh',Date.now(),str);  
+//     }
+
+// const intervalId=setInterval(sayDate,1000,'Hye')
+// console.log(intervalId);
+
+// clearInterval(intervalId)//It is used to stop perticulat interval function
+
+
+//example-2.3
+
+let intervalid=null;
+
+document.getElementById('Start').addEventListener('click',function(){
+ if (!intervalid) {
+    intervalid=setInterval(function(){
+        console.log('i am printing');
+      
+        console.log(intervalid);
+        
+    },1000)
+ }
+})
+
+
+document.getElementById('Stop').addEventListener('click',function(){
+   console.log(intervalid);
+   
+    clearInterval(intervalid)
+    intervalid=null;
+    console.log(intervalid);
+    
+})
+
+</script>
+</html>

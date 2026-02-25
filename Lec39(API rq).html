@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    
+</body>
+<script>
+    const requesturl='https://api.github.com/users/hiteshchoudhary'
+   const xhr= new XMLHttpRequest();
+   
+
+ 
+
+
+   
+    xhr.open('GET',requesturl)//sets rq to get data from url
+
+   
+
+    xhr.onreadystatechange=function(){
+        console.log(xhr.readyState);
+        console.log('state has been changed');
+        
+        if (xhr.readyState===4) {
+
+            //---------------JUST FOR KNOWLEDGE---------//
+            // const data=(this.responseText)//
+            // console.log(typeof data);//string--because when responses comes from  url , it will be mostly string
+            //---------------JUST FOR KNOWLEDGE---------//
+
+
+            const data=JSON.parse(this.responseText)//to convert into json to get data
+            console.log(typeof data)//Object
+            console.log(data.followers);//34408
+            
+            
+        }
+    }
+    
+    xhr.send()//send rq to get data
+
+    // console.log(xhr.readyState);//dont print it immidiately otherwise it always returns 1 
+    //for that use function to get instant information about state
+</script>
+</html>

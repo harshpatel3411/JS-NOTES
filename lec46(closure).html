@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+</body>
+
+</html>
+
+<!-- <script>
+    //EXAMPLE-1
+    function makeFun(params) {
+        const name='harsh'
+        function displayName() {
+            console.log(name);
+            
+        }
+        return displayName;
+    }
+
+    const myfunc=makeFun()
+    makeFun()
+
+/* ama jyare hu  return displayName karis tyare only function displayName() j nai but 
+makefun () no akho scope return thase , je pan variable lakhya hase makefun() 
+ ma te pan return thase */
+
+
+
+
+
+</script>
+ -->
+<script>
+    
+
+    //real word exampple-2
+
+
+
+//point-it will be executed automatically does not wait for click event
+// function clickHandler(color) {
+    
+    
+//     document.body.style.backgroundColor=`${color}`;
+  
+// }
+// document.getElementById('orange').onclick=clickHandler('orange')
+
+
+//point-to avoid this issue i will use below concept
+
+function clickHandler(color) {
+    
+    console.log('executed ');
+    
+    return function (){
+    document.body.style.backgroundColor=`${color}`;
+   }
+   
+  
+}
+
+document.getElementById('orange').onclick=clickHandler('orange')
+
+/*here clickhander will be executed and it returns function ,so that 
+function is assigned to click event,so now have if someone click on 
+button then it will change background color*/
+
+
+
+</script> 
+
+
+

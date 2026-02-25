@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+
+    </ul>
+</body>
+<script>
+// ---------- TO CREATE ELEMENTS FOLLOW FOLLOWING METHODS------------//
+
+    //1.method one to create element
+    // function addLanguage(langName) {
+    //   const li=  document.createElement('li')
+    //   li.innerHTML=`${langName}`
+    //   document.querySelector('.language').appendChild(li)
+    // }
+
+    // addLanguage('python')
+    // addLanguage('typescript')
+
+    //2.method 2-same as method1 but optimise approch for large scale projects 
+    function addOptiLanguage(langName) {
+        const li=  document.createElement('li')
+        const addText=document.createTextNode(langName)
+        li.appendChild(addText)
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addOptiLanguage('Java')
+
+// ---------- TO EDIT ELEMENTS FOLLOW FOLLOWING METHODS------------//
+
+
+//method one
+// const secondLang=document.querySelector('li:nth-child(2)')
+// console.log(secondLang);
+
+//     secondLang.innerHTML='mojo'
+   
+//method two(optimise approch)<---Improve it 
+// const secondLang=document.querySelector('li:nth-child(2)')
+
+// const newli=secondLang
+// newli.innerHTML=document.createElement('li')
+// secondLang.replaceWith(newli)
+
+
+//METHOD 3(extra example)
+
+
+const firstLang=document.querySelector('li:first-child')
+
+firstLang.outerHTML='<li> C </li>'
+
+
+
+// ---------- TO REMOVE ELEMENTS FOLLOW FOLLOWING METHODS------------//
+const lastLange=document.querySelector('li:last-child')
+console.log(lastLange);
+lastLange.remove()
+
+    
+</script>
+</html>

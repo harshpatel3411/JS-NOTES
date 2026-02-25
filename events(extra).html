@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+</head>
+<body>
+
+    <div id="wrapper">
+        <p id="fpara">first para <span>fspan</span> </p>
+        <p id="spara">second para <span>fspan</span> </p>
+        <p id="tpara">third para <span>fspan</span> </p>
+        <p id="forthpara">fourth para <span>fspan</span> </p>
+    </div>
+    <!-- <div>
+        <p id="fpara">
+            tisha
+        </p>
+        <a  id="anchor" href="https://www.codehelp.in">Click Here</a>
+    </div> -->
+</body>
+<script>
+
+     //1.to remove event 
+    // function changetext(event){
+    //     console.log(event);
+        
+    //     const fpara=document.getElementById('fpara')
+    //     fpara.textContent='harsh'
+    // }
+
+ 
+
+    // const fpara=document.getElementById('fpara')
+
+    // fpara.addEventListener('click',changetext)
+    // fpara.removeEventListener('click',changetext)
+
+
+
+//2.event obj
+
+//in function paramter we get event object
+// function changetext(event){
+//         console.log(event);
+//         const fpara=document.getElementById('fpara')
+//         fpara.textContent='harsh'
+//     }
+//     const fpara=document.getElementById('fpara')
+
+//     fpara.addEventListener('click',changetext)
+
+
+
+//2.prevent default(to stop element work , to stop element regular behaviour)
+//anchor tag (a) no nu kam che biji link par lai javan je apde stop kari sakia using event.preventDefault()
+//event.preventDefault() <-- it can be used to stop any element regular behaviour
+
+
+// let anchorelement=document.getElementById('anchor');
+
+// anchorelement.addEventListener("click",function(event){
+// event.preventDefault()
+// anchorelement.innerHTML='click done bhai'
+// })
+ 
+
+//example-1 (interview question)
+
+
+// let paras=document.querySelectorAll('p')
+// //e.target gives perticular element
+
+// function alertpara(event ){
+//      console.log(event.target);
+    
+//     alert('you have click on:-' + event.target.textContent)
+//    }
+
+
+// for (let index = 0; index < paras.length; index++) {
+//    let para=paras[index];
+//    para.addEventListener('click',alertpara)
+// }
+
+
+// //metho-2(using div)
+// let div=document.getElementById('wrapper')
+
+
+// div.addEventListener('click',alertpara)
+
+
+//example -3(noeName)
+
+//i want that if i click on span tag then only code should run
+
+
+// function alertpara(event ){
+
+//         if (event.target.nodeName==='SPAN') {
+//             alert('you have click on:-' + event.target.textContent)
+//         }
+  
+//    }
+
+//    let div=document.getElementById('wrapper')
+
+
+// div.addEventListener('click',alertpara)
+
+
+</script>
+</html>
